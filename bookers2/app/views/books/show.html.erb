@@ -7,7 +7,7 @@
   <tbody>
     <tr>
       <td>
-        <%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %>
+        <%= attachment_image_tag @book.user, :profile_image, fallback: "no_image.jpg" , size: "40x40"%>
         <%= link_to user_path(@book.user.id) do %>
         <br><%= @book.user.name %>
         <% end %>
@@ -25,7 +25,7 @@
         <%= link_to "Edit", edit_book_path(@book), class: 'btn btn-sm btn-success' %>
       </td>
       <td>
-        <%= link_to "Destroy", book_path(@book),class: 'btn btn-sm btn-danger', method: :delete %>
+        <%= link_to "Destroy", book_path(@book),class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に消しますか？" %>
         <% end %>
       </td>
     </tr>
